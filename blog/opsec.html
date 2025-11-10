@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction à l'OPSEC | leMecha</title>
+    <link rel="stylesheet" href="/public/style.css">
+    <style>
+        /* Styles spécifiques pour les articles */
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 120px 2rem 4rem;
+            min-height: 100vh;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.9rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--text-primary);
+            margin-bottom: 3rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-family: var(--font-main);
+            font-size: 1rem;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-8px);
+            box-shadow: 0 6px 25px var(--glow-color);
+        }
+
+        .article-content {
+            padding: 4rem;
+            border-radius: 30px;
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .article-date {
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+        }
+
+        .article-header h1 {
+            font-size: 3rem;
+            color: var(--text-primary);
+            font-family: var(--font-display);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .article-body h2 {
+            font-size: 2rem;
+            color: var(--accent);
+            margin: 3rem 0 1.5rem;
+            font-family: var(--font-display);
+        }
+
+        .article-body h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin: 2rem 0 1rem;
+            font-family: var(--font-display);
+        }
+
+        .article-body p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.9;
+        }
+
+        .article-body li {
+            margin-bottom: 0.8rem;
+        }
+
+        .article-body strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .code-block {
+            margin: 2rem 0;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .code-header {
+            padding: 1rem 1.5rem;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--glass-border);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .code-block pre {
+            padding: 1.5rem;
+            margin: 0;
+            overflow-x: auto;
+            background: var(--bg-secondary);
+        }
+
+        .code-block code {
+            font-family: var(--font-main);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--accent);
+        }
+
+        .info-box {
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--accent);
+        }
+
+        .info-box p {
+            margin: 0;
+        }
+
+        .info-box strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .article-container {
+                padding: 100px 1rem 3rem;
+            }
+
+            .article-content {
+                padding: 2rem;
+            }
+
+            .article-header h1 {
+                font-size: 2rem;
+            }
+
+            .article-body h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <canvas id="matrix"></canvas>
+        <div class="gradient-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-bracket">[</span>
+                <span class="logo-text">leMecha</span>
+                <span class="logo-bracket">]</span>
+            </a>
+            <div class="nav-links">
+                <a href="/#about" class="nav-link">About</a>
+                <a href="/#skills" class="nav-link">Skills</a>
+                <a href="/#projects" class="nav-link">Projects</a>
+                <a href="/#blog" class="nav-link">Blog</a>
+                <a href="/#contact" class="nav-link">Contact</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <span class="toggle-icon">◐</span>
+                </button>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <div class="article-container">
+        <a href="/" class="back-btn glass">
+            <span>←</span> Retour au blog
+        </a>
+
+        <article class="article-content glass">
+            <div class="article-header">
+                <div class="article-meta">
+                    <span class="article-date">03 NOV 2025</span>
+                    <span class="article-time">• 5 min read</span>
+                </div>
+                <h1>Introduction à l'OPSEC</h1>
+            </div>
+
+            <div class="article-body">
+                <p>Dans le monde de la cybersécurité, on parle souvent d'exploits, de vulnérabilités et d'outils
+                    d'attaque. Mais il existe un aspect tout aussi crucial et souvent négligé : <strong>l'OPSEC</strong>
+                    (Operational Security).</p>
+
+                <h2>Qu'est-ce que l'OPSEC ?</h2>
+                <p>L'OPSEC est un processus qui identifie les informations critiques pour déterminer si vos actions
+                    peuvent être observées par des adversaires, et si les informations obtenues peuvent être
+                    interprétées pour compromettre votre sécurité.</p>
+
+                <p>Originaire du monde militaire, l'OPSEC a été adopté par la communauté de la cybersécurité pour
+                    protéger non seulement les systèmes, mais aussi les personnes qui les utilisent.</p>
+
+                <div class="info-box glass">
+                    <strong>💡 Point clé</strong>
+                    <p>L'OPSEC ne concerne pas seulement ce que vous faites, mais aussi ce que vous révélez
+                        involontairement sur ce que vous faites.</p>
+                </div>
+
+                <h2>Les 5 Piliers de l'OPSEC</h2>
+                <p>Le processus OPSEC repose sur cinq étapes fondamentales :</p>
+
+                <h3>1. Identification des informations critiques</h3>
+                <p>Quelles sont les informations qui, si elles tombaient entre de mauvaises mains, pourraient vous nuire
+                    ? Votre véritable identité, votre localisation, vos projets en cours, vos outils utilisés...</p>
+
+                <h3>2. Analyse des menaces</h3>
+                <p>Qui pourrait vouloir obtenir ces informations ? Des concurrents, des acteurs malveillants, des
+                    gouvernements, ou même simplement des curieux ?</p>
+
+                <h3>3. Analyse des vulnérabilités</h3>
+                <p>Comment vos informations pourraient-elles être exposées ? Réseaux sociaux, métadonnées, fuites
+                    accidentelles, traces numériques...</p>
+
+                <h3>4. Évaluation des risques</h3>
+                <p>Quelle est la probabilité que vos vulnérabilités soient exploitées ? Et quel serait l'impact si cela
+                    se produisait ?</p>
+
+                <h3>5. Application de contre-mesures</h3>
+                <p>Quelles actions pouvez-vous prendre pour réduire les risques ? Chiffrement, compartimentage,
+                    anonymisation...</p>
+
+                <h2>L'OPSEC dans le Monde Digital</h2>
+                <p>À l'ère numérique, chaque action laisse une trace. Un simple post sur les réseaux sociaux, une photo
+                    avec des métadonnées GPS, un commit GitHub mal pensé, ou même votre style d'écriture peuvent révéler
+                    bien plus que vous ne le pensez.</p>
+
+                <div class="code-block glass">
+                    <div class="code-header">
+                        <span>bash</span>
+                        <span>Suppression des métadonnées</span>
+                    </div>
+                    <pre><code># Supprimer les métadonnées EXIF d'une image
+exiftool -all= image.jpg
+
+# Vérifier les métadonnées restantes
+exiftool image.jpg
+
+# Alternative avec ImageMagick
+convert image.jpg -strip image_clean.jpg</code></pre>
+                </div>
+
+                <h2>Exemples de Fails OPSEC Célèbres</h2>
+                <p>L'histoire regorge d'exemples où un manque d'OPSEC a mené à des compromissions :</p>
+
+                <ul>
+                    <li><strong>John McAfee</strong> : Localisé via les métadonnées EXIF d'une photo postée par un
+                        journaliste</li>
+                    <li><strong>Silk Road</strong> : Ross Ulbricht identifié grâce à ses posts sur des forums sous son
+                        vrai nom</li>
+                    <li><strong>Anonymous</strong> : Plusieurs membres identifiés via leurs empreintes numériques
+                        uniques</li>
+                </ul>
+
+                <h2>Conseils Pratiques pour Améliorer votre OPSEC</h2>
+
+                <h3>🔒 Compartimentez vos identités</h3>
+                <p>Ne mélangez jamais votre identité professionnelle, personnelle et vos activités en cybersécurité.
+                    Utilisez des pseudonymes différents, des adresses email séparées, et ne réutilisez jamais les mêmes
+                    mots de passe.</p>
+
+                <h3>🌐 Utilisez des VPN et Tor avec parcimonie</h3>
+                <p>Un VPN ne vous rend pas invisible. Tor non plus. Ils sont des outils, pas des solutions magiques.
+                    Comprenez leurs limites et utilisez-les correctement.</p>
+
+                <h3>📱 Attention aux métadonnées</h3>
+                <p>Photos, documents, fichiers audio... Tout contient des métadonnées qui peuvent vous identifier.
+                    Nettoyez-les systématiquement avant de partager quoi que ce soit.</p>
+
+                <div class="code-block glass">
+                    <div class="code-header">
+                        <span>python</span>
+                        <span>Script de nettoyage automatique</span>
+                    </div>
+                    <pre><code>#!/usr/bin/env python3
+import os
+from PIL import Image
+
+def clean_metadata(image_path):
+    """Supprime les métadonnées EXIF d'une image"""
+    img = Image.open(image_path)
+    data = list(img.getdata())
+    clean_img = Image.new(img.mode, img.size)
+    clean_img.putdata(data)
+    clean_img.save(image_path)
+    print(f"✓ Métadonnées supprimées : {image_path}")
+
+# Utilisation
+clean_metadata("screenshot.png")</code></pre>
+                </div>
+
+                <h3>💬 Pensez avant de poster</h3>
+                <p>Chaque information que vous partagez en ligne est potentiellement permanente. Avant de poster quoi
+                    que ce soit, demandez-vous : "Cette information peut-elle me compromettre dans 5 ans ?"</p>
+
+                <h3>🔍 Surveillez votre empreinte numérique</h3>
+                <p>Googlisez-vous régulièrement. Utilisez des outils comme <code>sherlock</code> ou
+                    <code>osintgram</code> sur vous-même pour voir ce qu'un adversaire pourrait découvrir.</p>
+
+                <div class="info-box glass">
+                    <strong>⚠️ Attention</strong>
+                    <p>L'OPSEC parfait n'existe pas. L'objectif est de rendre votre compromission suffisamment coûteuse
+                        et difficile pour dissuader la plupart des adversaires.</p>
+                </div>
+
+                <h2>Conclusion</h2>
+                <p>L'OPSEC n'est pas de la paranoia, c'est de la prévoyance. Dans un monde où chaque action numérique
+                    laisse une trace, comprendre et appliquer les principes de l'OPSEC est essentiel pour quiconque
+                    s'intéresse à la cybersécurité.</p>
+
+                <p>Rappelez-vous : la sécurité n'est pas un produit, c'est un processus. L'OPSEC fait partie intégrante
+                    de ce processus.</p>
+
+                <p><strong>Stay safe, stay anonymous. 🛡️</strong></p>
+            </div>
+        </article>
+
+        <a href="/#blog" class="back-btn glass" style="margin-top: 3rem;">
+            <span>←</span> Retour au blog
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer glass">
+        <div class="footer-content">
+            <p>&copy; 2025 leMecha | Tim D.</p>
+            <p class="footer-tagline">Built with security in mind</p>
+        </div>
+    </footer>
+
+    <script src="/public/script.js"></script>
+</body>
+
+</html>

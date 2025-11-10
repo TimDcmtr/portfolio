@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leMecha | Decrypting...</title>
+    <link rel="stylesheet" href="/public/style.css">
+    <link rel="icon" type="image/png" href="/public/icon.png" />
+
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <canvas id="matrix"></canvas>
+        <div class="gradient-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-bracket">[</span>
+                <span class="logo-text">Tim D.</span>
+                <span class="logo-bracket">]</span>
+            </a>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#blog" class="nav-link">Blog</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="theme-toggle" id="themeToggle">
+                    <span class="toggle-icon">◐</span>
+                </button>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="glitch-wrapper">
+                    <h1 class="hero-title" data-text="leMecha">leMecha</h1>
+                </div>
+                <div class="terminal-text">
+                    <span class="prompt">root@lemecha:~$</span>
+                    <span class="typing-text"></span>
+                    <span class="cursor">_</span>
+                </div>
+                <p class="hero-subtitle">Cybersecurity Student & Developer</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="cta-btn glass">
+                        <span>View Projects</span>
+                    </a>
+                    <a href="#contact" class="cta-btn cta-btn-anim glass secondary">
+                        <span>Get in Touch</span>
+                    </a>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="title-number">01.</span>
+                    <span class="title-text">About</span>
+                    <div class="title-line"></div>
+                </h2>
+                <div class="about-content glass">
+                    <div class="about-text">
+                        <p class="lead">Étudiant passionné en <span class="highlight">cybersécurité</span> avec un fort
+                            intérêt pour la prévention.</p>
+                        <p>Je me concentre sur l'apprentissage des techniques offensives et défensives. Ma philosophie :
+                            la sécurité par la compréhension.</p>
+                        <p>Actuellement en train d'explorer les CTF, le reverse engineering, et travail sur l'OpSec.</p>
+                        <div class="quote glass">
+                            <span class="quote-icon">"</span>
+                            <p>Security through obscurity is no security at all. True security comes from understanding.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card glass">
+                            <div class="stat-icon">🎓</div>
+                            <div class="stat-value" data-target="2">1</div>
+                            <div class="stat-label">Years Learning</div>
+                        </div>
+                        <div class="stat-card glass">
+                            <div class="stat-icon">💻</div>
+                            <div class="stat-value" data-target="50">2</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="stat-card glass">
+                            <div class="stat-icon">🏆</div>
+                            <div class="stat-value" data-target="10">45+</div>
+                            <div class="stat-label">CTF Solved</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="title-number">02.</span>
+                    <span class="title-text">Skills</span>
+                    <div class="title-line"></div>
+                </h2>
+                <div class="skills-container">
+
+
+                    <div class="skill-category glass">
+                        <div class="category-header">
+                            <div class="category-icon">🔒</div>
+                            <h3>Security</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-badge">CTF</span>
+                            <span class="skill-badge">OSINT</span>
+                            <span class="skill-badge">Network</span>
+                            <span class="skill-badge">DevSecOps</span>
+                            <span class="skill-badge">Forensic</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category glass">
+                        <div class="category-header">
+                            <div class="category-icon">⚡</div>
+                            <h3>Development</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-badge">Node.js</span>
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">HTML/CSS</span>
+                            <span class="skill-badge">Git</span>
+                            <span class="skill-badge">Vue.JS</span>
+                            <span class="skill-badge">MongoDB</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category glass">
+                        <div class="category-header">
+                            <div class="category-icon">🌐</div>
+                            <h3>Networking</h3>
+                        </div>
+                        <div class="skill-tags">
+                            <span class="skill-badge">GNS3</span>
+                            <span class="skill-badge">Cisco Packet Tracer</span>
+                            <span class="skill-badge">Virtualization</span>
+                            <span class="skill-badge">Proxy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="title-number">03.</span>
+                    <span class="title-text">Projects</span>
+                    <div class="title-line"></div>
+                </h2>
+                <div class="projects-grid">
+
+                    <div class="project-card glass">
+                        <div class="project-number">01</div>
+                        <div class="project-content">
+                            <h3>Techniques d'administration & supervision ISR</h3>
+                            <p>Acquérir des compétences pratiques en installation, configuration, sécurisation d'une
+                                infrastructure réseau, et préparation à la certification LPI Essentials.</p>
+                            <div class="project-tags">
+                                <span class="tag">VMWare</span>
+                                <span class="tag">Stormshield</span>
+                                <span class="tag">Virtualisation</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="#projects" class="project-link-no">
+                                <span>Aucun lien...</span>
+                            </a>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+
+                    <div class="project-card glass">
+                        <div class="project-number">02</div>
+                        <div class="project-content">
+                            <h3>Techniques de sécurisation ISR</h3>
+                            <p>
+                                Concevoir et sécuriser une infrastructure réseau complète en mettant en œuvre plusieurs
+                                mécanismes de segmentation et de défense.
+                                Vous configurerez des VLANs, réaliserez le routage inter-VLAN, appliquerez des ACL et
+                                des règles de firewall, mettrez en place le NAT/PAT pour la sortie Internet, installerez
+                                un proxy pour filtrer le trafic web, hébergerez des services dans une DMZ
+                            </p>
+                            <div class="project-tags">
+                                <span class="tag">pfSense</span>
+                                <span class="tag">Squid</span>
+                                <span class="tag">GNS3</span>
+                                <span class="tag">Réseau</span>
+                            </div>
+                        </div>
+                        <div class="project-links">
+                            <a href="/public/rapport_isr.pdf" target="_blank" class="project-link">
+                                <span>Rapport PDF</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                    <polyline points="15 3 21 3 21 9"></polyline>
+                                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="project-glow"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="title-number">04.</span>
+                    <span class="title-text">Blog</span>
+                    <div class="title-line"></div>
+                </h2>
+                <div class="blog-grid">
+
+                    <a href="blog/opsec" class="blog-card glass">
+                        <div class="blog-date">03 NOV 2025</div>
+                        <h3>Introduction à l'OPSEC</h3>
+                        <p>Les fondamentaux de la sécurité opérationnelle et pourquoi elle est cruciale dans le monde de
+                            la cybersécurité.</p>
+                        <div class="blog-footer">
+                            <span class="read-time">5 min read</span>
+                            <span class="blog-arrow">→</span>
+                        </div>
+                        <div class="card-glow"></div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="title-number">05.</span>
+                    <span class="title-text">Contact</span>
+                    <div class="title-line"></div>
+                </h2>
+                <div class="contact-content">
+                    <div class="contact-text glass">
+                        <h3>Let's Connect</h3>
+                        <p>Intéressé par une collaboration ou simplement envie de discuter cybersécurité ? N'hésite pas
+                            à me contacter.</p>
+                        <div class="contact-methods">
+
+                            <a href="mailto:contact@tim-d.fr" class="contact-btn glass">
+                                <div class="btn-icon">📧</div>
+                                <div class="btn-content">
+                                    <span class="btn-label">Email</span>
+                                    <span class="btn-value">contact@tim-d.fr</span>
+                                </div>
+                            </a>
+
+                            <a href="https://github.com/TimDcmtr" target="_blank" class="contact-btn glass">
+                                <div class="btn-icon">💻</div>
+                                <div class="btn-content">
+                                    <span class="btn-label">GitHub</span>
+                                    <span class="btn-value">TimDcmtr</span>
+                                </div>
+                            </a>
+
+                            <a href="https://signal.me/#eu/9lzMrtoBd0Suj5qj7_llAIghzrS0X7vi-wncC0mESylzXBXbKnJB1bCPo5qlQlN7"
+                                target="_blank" class="contact-btn glass">
+                                <div class="btn-icon">💬</div>
+                                <div class="btn-content">
+                                    <span class="btn-label">Signal</span>
+                                    <span class="btn-value">tim.34</span>
+                                </div>
+                            </a>
+
+                            <a href="https://www.linkedin.com/in/timeo-d/" target="_blank" class="contact-btn glass">
+                                <div class="btn-icon">💼</div>
+                                <div class="btn-content">
+                                    <span class="btn-label">LinkedIn</span>
+                                    <span class="btn-value">timeo-d</span>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer glass">
+        <div class="footer-content">
+            <p>&copy; 2025 leMecha | Tim D.</p>
+            <p class="footer-tagline">Built with security in mind</p>
+        </div>
+    </footer>
+
+    <script src="/public/script.js"></script>
+</body>
+
+</html>
